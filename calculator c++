@@ -1,0 +1,123 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+float add(float a,float b)
+{
+   return a+b;
+}
+float sub(float a,float b)
+{
+    return a-b;
+}
+float mul(float a,float b)
+{
+    return a*b;
+}
+float Div(float a,float b)
+{
+    if(b==0)
+    {
+        cout<<"Error! Can't Divide by Zero"<<endl;
+        return 0;
+    }
+    return a/b;
+}
+int Mod(int a,int b)
+{
+    return a%b;
+}
+float power(float base, int exponent) {
+    float result = 1;
+    int pos_Exponent=exponent;
+    if(exponent<0)
+    {
+       pos_Exponent =-exponent;
+    }
+    for(int i = 0; i < pos_Exponent; i++) {
+        result *= base;
+    }
+    if(exponent<0)
+    {
+        result = 1/result;
+    }
+    return result;
+}
+float square(float a)
+{
+    if(a<0)
+    {
+        cout<<"Error! Square Root of Negative Number is not Allowed"<<endl;
+        return 0;
+    }
+    return sqrt(a);
+}
+float Log(float a)
+{
+    if(a<=0)
+    {
+        cout<<"Error! Logarithom of Zero or Negative Number is not Allowed"<<endl;
+        return 0;
+    }
+    return log(a);
+    
+}
+int main()
+{
+    float num1,num2;
+    int choice;
+    char repeat;
+    do{
+
+    cout<<"Choose An Operation To Perform On The Numbers"<<endl;
+    cout<<"==============================================="<<endl;
+    cout<<"Enter Choice Between (1-8)"<<endl;
+    cout<<"1) Addition \n2) Subtract \n3) Multiply \n4) Division \n5) Modulus \n6) Power \n7) Square Root \n8) Logarithom "<<endl;
+    cin>>choice;
+    if(choice >=1 && choice<=6 )
+    {
+            cout<<"Enter First Number "<<endl;
+    cin>>num1;
+    cout<<"Enter Second Number"<<endl;
+    cin>>num2;
+    }
+    else if(choice >= 7 || choice <=8 ){
+    cout<<"Enter Number "<<endl;
+    cin>>num1;
+    }
+    switch(choice)
+    {
+        case 1:
+          cout<<"Result Of Addition Are: "<<add(num1,num2)<<endl;
+    break;
+    case 2:
+          cout<<"Result Of Subtraction Are "<<sub(num1,num2)<<endl;
+    break;
+    case 3:
+         cout<<"Result Of Multiplication Are"<<mul(num1,num2)<<endl;
+         break;
+    case 4:
+         cout<<"Result Of Divison Are "<<Div(num1,num2)<<endl;
+    break;
+    case 5:
+         cout<<"Result Of Modulus Are "<<Mod(int(num1),int(num2))<<endl;
+         break;
+    case 6:
+    cout<<"Result Of Power Are "<<power(num1,int(num2))<<endl;
+    break;
+    case 7:
+    cout<<"Result of Square Root Are "<<square(num1)<<endl;
+        break;
+        case 8:
+        cout<<"The Result Of Logarithom Are "<<Log(num1)<<endl;
+    break;
+        
+    }
+    cout<<"Do you Want to Continue Enter 'Y' For Yes And 'N' For No"<<endl;
+    cin>>repeat;
+    }while(repeat == 'Y' || repeat == 'y');
+    cout<<"Thanks You For Using The Calculator"<<endl;
+
+    
+    
+    return 0;
+}
